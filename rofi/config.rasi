@@ -1,0 +1,8 @@
+configuration {
+	modes: "combi";
+	drun-match-fields: "name,generic,exec,categories,keywords";
+	combi-modes: "window,drun,run";
+	window-format: "{w} {t}";
+}
+
+@theme "/home/andre/.local/share/rofi/themes/squared-material-red.rasi"

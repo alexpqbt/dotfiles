@@ -1,0 +1,14 @@
+VteTerminal,
+TerminalScreen,
+vte-terminal {
+	padding: 32px;
+	-VteTerminal-inner-border: 32px;
+}
+
+/***** scrollbar slider - cinnamon-settings-generated - do not edit *****/
+VteTerminal,
+TerminalScreen,
+vte-terminal {
+	padding: 32px;
+	-VteTerminal-inner-border: 32px;
+}
