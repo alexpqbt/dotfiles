@@ -5,4 +5,4 @@ configuration {
 	window-format: "{w} {t}";
 }
 
-@theme "squared-material-pink.rasi"
+@theme "themes/squared-material-pink.rasi"
