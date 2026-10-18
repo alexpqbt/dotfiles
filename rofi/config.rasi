@@ -5,4 +5,4 @@ configuration {
 	window-format: "{w} {t}";
 }
 
-@theme "/home/andre/.local/share/rofi/themes/squared-material-red.rasi"
+@theme "squared-material-pink.rasi"
