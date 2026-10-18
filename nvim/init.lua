@@ -1,9 +1,11 @@
 -- plugins
 vim.pack.add{
-  { src = 'https://github.com/neovim/nvim-lspconfig' },
-  { src = 'https://github.com/mason-org/mason.nvim' },
-  { src = 'https://github.com/stevearc/oil.nvim' },
+	{ src = 'https://github.com/neovim/nvim-lspconfig' },
+	{ src = 'https://github.com/mason-org/mason.nvim' },
+	{ src = 'https://github.com/stevearc/oil.nvim' },
+	{ src = 'https://github.com/vague-theme/vague.nvim' },
 }
+
 
 require("mason").setup({
 	ui = {
@@ -48,7 +50,11 @@ vim.g.netrw_banner	 = 0
 vim.g.netrw_liststyle= 0
 
 -- color
-vim.cmd.colorscheme("default")
+vim.cmd.colorscheme('vague')
+
+require('vague').setup({
+	transparent = true,
+})
 
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
@@ -65,9 +71,12 @@ vim.keymap.set('n', '<Leader>q', ':q<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<Leader>w', ':w<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<Leader>r', ':!', { noremap = true, silent = true })
 
-vim.keymap.set('n', '<F5>', ':make<CR>:copen<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<F5>', ':make run<CR>:copen 20<CR>', { noremap = true, silent = true })
 
 vim.keymap.set('t', '<Leader><Esc>', [[<C-\><C-n>]], { noremap = true, silent = true })
+
+vim.keymap.set("i", "<c-space>", function() vim.lsp.completion.get() end)
+vim.opt.completeopt = { "menu", "menuone", "noselect", "popup" }
 
 
 -- commands
@@ -93,11 +102,30 @@ vim.api.nvim_create_user_command('CloseHiddenBuffers', function()
 end, {})
 
 
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(ev)
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    if client and client:supports_method("textDocument/completion") then
+      vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+    end
+  end,
+})
+
+
 -- lsp
 vim.lsp.enable("emmylua_ls")
 
-local clangd_opts = {}
-
+local clangd_opts = {
+	capabillities = {
+		offsetEncoding = { "utf-8", "utf-16" },
+		textDocument = {
+		  completion = {
+			editsNearCursor = true
+		  }
+		}
+	}
+}
 if not vim.lsp.is_enabled('clangd') then
 	vim.lsp.enable("clangd", clangd_opts)
 end
+
