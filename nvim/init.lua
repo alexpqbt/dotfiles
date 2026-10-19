@@ -21,29 +21,40 @@ require("oil").setup({
 require("mini.align").setup()
 
 -- init
-vim.opt.shiftwidth  = 4
-vim.opt.tabstop     = 4
-vim.opt.softtabstop = 4
-vim.opt.expandtab   = false
-vim.opt.autoindent  = true
+vim.opt.shiftwidth    = 4
+vim.opt.tabstop       = 4
+vim.opt.softtabstop   = 4
+vim.opt.expandtab     = false
+vim.opt.autoindent    = true
+vim.opt.smartindent   = true
 
-vim.opt.hidden      = true
-vim.opt.title       = true
+vim.opt.hidden        = true
+vim.opt.title         = true
 
-vim.opt.rnu         = true
+vim.opt.rnu           = true
 
-vim.opt.incsearch   = true
-vim.opt.hlsearch    = false
+vim.opt.incsearch     = true
+vim.opt.hlsearch      = false
 
-vim.opt.ignorecase  = true
+vim.opt.ignorecase    = true
 
-vim.opt.clipboard   = "unnamedplus"
+vim.opt.clipboard     = "unnamedplus"
 
-vim.opt.signcolumn  = "yes"
+vim.opt.signcolumn    = "yes"
 
-vim.opt.wrap        = true
-vim.opt.linebreak   = true
-vim.opt.breakindent = true
+vim.opt.wrap          = true
+vim.opt.linebreak     = true
+vim.opt.breakindent   = true
+
+vim.opt.cursorline    = true
+vim.opt.scrolloff     = 10
+vim.opt.sidescrolloff = 8
+
+vim.opt.termguicolors = true
+
+vim.opt.showmatch     = true
+vim.opt.matchtime     = 2
+
 
 vim.opt.iskeyword:remove("_")
 
@@ -73,6 +84,25 @@ vim.keymap.set('n', '<Leader>e', '<Cmd>split | Oil<CR>', { silent = true })
 vim.keymap.set('n', '<Leader>q', ':q<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<Leader>w', ':w<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<Leader>r', ':!', { noremap = true, silent = true })
+
+vim.keymap.set('x', '<Leader>p', '"_dP')
+
+vim.keymap.set({ 'n', 'v' }, '<Leader>d', '"_d')
+
+vim.keymap.set('n', '<Leader>bn', ':bnext<CR>')
+vim.keymap.set('n', '<Leader>bp', ':bprevious<CR>')
+
+vim.keymap.set('n', '<C-h>', '<C-w>h')
+vim.keymap.set('n', '<C-j>', '<C-w>j')
+vim.keymap.set('n', '<C-k>', '<C-w>k')
+vim.keymap.set('n', '<C-l>', '<C-w>l')
+
+vim.keymap.set('n', '<A-j>', ':m .+1<CR>==')
+vim.keymap.set('n', '<A-k>', ':m .-2CR>==')
+vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv")
+
+vim.keymap.set('n', 'J', 'mzJ`z')
 
 vim.keymap.set('n', '<F5>', ':make run<CR>:copen 20<CR>', { noremap = true, silent = true })
 
