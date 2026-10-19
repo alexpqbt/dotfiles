@@ -1,0 +1,32 @@
+[window]
+padding = { x = 42, y = 42 }
+dynamic_padding = true
+opacity = 0.95
+
+[font]
+normal = { family = "Geist Mono", style = "Regular" }
+size = 11
+
+[colors]
+primary.foreground = "#CFCED2"
+primary.background = "#1E1D20"
+
+normal.black   = "#334CEE"
+normal.red     = "#D53975"
+normal.green   = "#6577EC"
+normal.yellow  = "#A0ACF8"
+normal.blue    = "#AF88F2"
+normal.magenta = "#D763E9"
+normal.cyan    = "#8493F6"
+normal.white   = "#EAE8ED"
+
+bright.black   = "#7A8BF7"
+bright.red     = "#EB75A2"
+bright.green   = "#AEB8F9"
+bright.yellow  = "#C6CDFB"
+bright.blue    = "#DDCBFB"
+bright.magenta = "#E17EF1"
+bright.cyan    = "#D6C2FA"
+bright.white   = "#F7F6F9"
+
+draw_bold_text_with_bright_colors = true
