@@ -1,9 +1,10 @@
 -- plugins
 vim.pack.add{
-	{ src = 'https://github.com/neovim/nvim-lspconfig' },
-	{ src = 'https://github.com/mason-org/mason.nvim' },
-	{ src = 'https://github.com/stevearc/oil.nvim' },
+ 	{ src = 'https://github.com/neovim/nvim-lspconfig' },
+ 	{ src = 'https://github.com/mason-org/mason.nvim' },
+   	{ src = 'https://github.com/stevearc/oil.nvim' },
 	{ src = 'https://github.com/vague-theme/vague.nvim' },
+ 	{ src = 'https://github.com/nvim-mini/mini.align' },
 }
 
 
@@ -17,37 +18,39 @@ require("oil").setup({
 	default_file_explorer = true,
 })
 
+require("mini.align").setup()
+
 -- init
-vim.opt.shiftwidth   = 4
-vim.opt.tabstop      = 4
-vim.opt.softtabstop  = 4
-vim.opt.expandtab    = false
-vim.opt.autoindent   = true
+vim.opt.shiftwidth  = 4
+vim.opt.tabstop     = 4
+vim.opt.softtabstop = 4
+vim.opt.expandtab   = false
+vim.opt.autoindent  = true
 
-vim.opt.hidden       = true
-vim.opt.title        = true
+vim.opt.hidden      = true
+vim.opt.title       = true
 
-vim.opt.rnu          = true
+vim.opt.rnu         = true
 
-vim.opt.incsearch    = true
-vim.opt.hlsearch     = false
+vim.opt.incsearch   = true
+vim.opt.hlsearch    = false
 
-vim.opt.ignorecase   = true
+vim.opt.ignorecase  = true
 
-vim.opt.clipboard    = "unnamedplus"
+vim.opt.clipboard   = "unnamedplus"
 
-vim.opt.signcolumn   = "yes"
+vim.opt.signcolumn  = "yes"
 
-vim.opt.wrap		 = true
-vim.opt.linebreak	 = true
-vim.opt.breakindent	 = true
+vim.opt.wrap        = true
+vim.opt.linebreak   = true
+vim.opt.breakindent = true
 
 vim.opt.iskeyword:remove("_")
 
 
 -- netrw
-vim.g.netrw_banner	 = 0
-vim.g.netrw_liststyle= 0
+vim.g.netrw_banner    = 0
+vim.g.netrw_liststyle = 0
 
 -- color
 vim.cmd.colorscheme('vague')
