@@ -98,13 +98,13 @@ vim.keymap.set('n', '<C-k>', '<C-w>k')
 vim.keymap.set('n', '<C-l>', '<C-w>l')
 
 vim.keymap.set('n', '<A-j>', ':m .+1<CR>==')
-vim.keymap.set('n', '<A-k>', ':m .-2CR>==')
+vim.keymap.set('n', '<A-k>', ':m .-2<CR>==')
 vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv")
 
 vim.keymap.set('n', 'J', 'mzJ`z')
 
-vim.keymap.set('n', '<F5>', ':make run<CR>:copen 20<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<F5>', ':make run<CR>:copen 10<CR>', { noremap = true, silent = true })
 
 vim.keymap.set('t', '<Leader><Esc>', [[<C-\><C-n>]], { noremap = true, silent = true })
 
